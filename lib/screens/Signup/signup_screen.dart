@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:ambulance_tracker/constants.dart';
 import 'package:ambulance_tracker/screens/Login/login_screen.dart';
@@ -6,9 +5,6 @@ import 'package:ambulance_tracker/Components/already_have_an_account_acheck.dart
 import 'package:ambulance_tracker/Components/rounded_button.dart';
 import 'package:ambulance_tracker/Components/rounded_input_field.dart';
 import 'package:ambulance_tracker/Components/rounded_password_field.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class SignUpScreen extends StatelessWidget {
   @override
@@ -18,6 +14,7 @@ class SignUpScreen extends StatelessWidget {
     );
   }
 }
+
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -71,10 +68,11 @@ class Body extends StatelessWidget {
     );
   }
 }
+
 class Background extends StatelessWidget {
-  final Widget child;
+  final Widget? child;
   const Background({
-    Key key,
+    Key? key,
     @required this.child,
   }) : super(key: key);
 
@@ -88,7 +86,6 @@ class Background extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
-
           Positioned(
             bottom: 0,
             left: 0,
@@ -97,7 +94,7 @@ class Background extends StatelessWidget {
               width: size.width * 0.25,
             ),
           ),
-          child,
+          child ?? SizedBox(),
         ],
       ),
     );
@@ -140,13 +137,11 @@ class OrDivider extends StatelessWidget {
   }
 }
 
-
-
 class SocalIcon extends StatelessWidget {
-  final String iconSrc;
-  final Function press;
+  final String? iconSrc;
+  final Function()? press;
   const SocalIcon({
-    Key key,
+    Key? key,
     this.iconSrc,
     this.press,
   }) : super(key: key);
@@ -156,8 +151,8 @@ class SocalIcon extends StatelessWidget {
     return GestureDetector(
       onTap: press,
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 10),
-        padding: EdgeInsets.all(20),
+        margin: const EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
           border: Border.all(
             width: 2,
@@ -165,8 +160,8 @@ class SocalIcon extends StatelessWidget {
           ),
           shape: BoxShape.circle,
         ),
-        child: SvgPicture.asset(
-          iconSrc,
+        child: Image.asset(
+          iconSrc!,
           height: 20,
           width: 20,
         ),
@@ -174,5 +169,3 @@ class SocalIcon extends StatelessWidget {
     );
   }
 }
-
-

@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:location/location.dart';
-import 'package:geocoder/geocoder.dart';
 import 'package:intl/intl.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -16,7 +15,6 @@ late CameraPosition _cameraPosition =
 LatLng _initialcameraposition = LatLng(0.5937, 0.9629);
 
 Future<String> getLoc() async {
-
   bool _serviceEnabled;
   PermissionStatus _permissionGranted;
 
@@ -47,21 +45,23 @@ Future<String> getLoc() async {
   _initialcameraposition =
       LatLng(_currentPosition.latitude!, _currentPosition.longitude!);
 
-  _getAddress(_currentPosition.latitude!, _currentPosition.longitude!)
-      .then((value) {
-    _address = value.first.addressLine;
-  });
+  // _getAddress(_currentPosition.latitude!, _currentPosition.longitude!)
+  //     .then((value) {
+  //   _address = value.first.addressLine;
+  // });
   details += "{}";
-  details += _currentPosition.latitude.toString()+" , "+_currentPosition.longitude.toString();
+  details += _currentPosition.latitude.toString() +
+      " , " +
+      _currentPosition.longitude.toString();
   details += "{}";
   details += _address;
 
   return details;
 }
 
-Future<List<Address>> _getAddress(double lat, double lang) async {
-  final coordinates = new Coordinates(lat, lang);
-  List<Address> add =
-      await Geocoder.local.findAddressesFromCoordinates(coordinates);
-  return add;
-}
+// Future<List<Address>> _getAddress(double lat, double lang) async {
+//   final coordinates = new Coordinates(lat, lang);
+//   List<Address> add =
+//       await Geocoder.local.findAddressesFromCoordinates(coordinates);
+//   return add;
+// }

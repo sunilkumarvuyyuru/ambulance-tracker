@@ -1,12 +1,11 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:ambulance_tracker/constants.dart';
 
 class AlreadyHaveAnAccountCheck extends StatelessWidget {
   final bool login;
-  final Function press;
+  final Function()? press;
   const AlreadyHaveAnAccountCheck({
-    Key key,
+    Key? key,
     this.login = true,
     this.press,
   }) : super(key: key);

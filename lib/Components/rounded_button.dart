@@ -1,13 +1,12 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:ambulance_tracker/constants.dart';
 
 class RoundedButton extends StatelessWidget {
-  final String text;
-  final Function press;
-  final Color color, textColor;
+  final String? text;
+  final Function()? press;
+  final Color? color, textColor;
   const RoundedButton({
-    Key key,
+    Key? key,
     this.text,
     this.press,
     this.color = kPrimaryColor,
@@ -33,7 +32,7 @@ class RoundedButton extends StatelessWidget {
   Widget newElevatedButton() {
     return ElevatedButton(
       child: Text(
-        text,
+        text ?? 'No Data',
         style: TextStyle(color: textColor),
       ),
       onPressed: press,
